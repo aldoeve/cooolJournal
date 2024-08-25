@@ -8,5 +8,9 @@
 #  other utility.                                                 #
 #-----------------------------------------------------------------#
 
+ ifeq (, $(shell which npm))
+ $(error "No npm in $(PATH); please install npm")
+ endif
+
 run:
 	npm run dev
