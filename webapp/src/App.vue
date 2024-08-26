@@ -1,4 +1,15 @@
 <script setup>
+import Login from './components/Login.vue'
+import SignUp from './components/SignUp.vue'
+</script>
+
+<template>
+  <Login></Login>
+  <SignUp></SignUp>
+</template>
+
+
+<!-- <script setup>
 import HelloWorld from './components/HelloWorld.vue'
 import TheWelcome from './components/TheWelcome.vue'
 </script>
@@ -45,3 +56,4 @@ header {
   }
 }
 </style>
+ -->
