@@ -12,5 +12,16 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
-  }
+  },
+
+  configureWebpack: {
+    output: {
+      filename: 'js/[name].[hash].js',
+    },
+    performance: {
+      hints: false
+    }
+  },
 })
+
+
