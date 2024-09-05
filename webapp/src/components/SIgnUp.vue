@@ -1,3 +1,31 @@
+<script>
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+
+export default {
+  setup() {
+    const router = useRouter();
+    const username = ref('');
+    const password = ref('');
+    const showPassword = ref(false);
+
+    const toggle = () => {
+      showPassword.value = !showPassword.value;
+    };
+
+    const toggleButtonText = () => {
+      return showPassword.value ? 'Hide' : 'Show';
+    };
+
+    const gotoLogin = () => {
+      router.push('/');
+    };
+
+    return { username, password, showPassword, toggle, toggleButtonText, gotoLogin };
+  }
+};
+</script>
+
 <template>
     <body>
       <div class = "container" >
@@ -9,7 +37,7 @@
         </input>
 
 
-        <button class = "buttons">
+        <button class = "buttons" @click="gotoLogin">
             <slot>
                 Sign Up
             </slot>
