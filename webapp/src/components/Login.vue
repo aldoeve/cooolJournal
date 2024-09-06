@@ -1,33 +1,22 @@
-<script>
+<script setup>
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 
+const router   = useRouter();
 
+const username = ref('');
+const password = ref('');
+const showPassword = ref(false);
 
-
-export default {
-  setup() {
-    const router = useRouter();
-    const username = ref('');
-    const password = ref('');
-    const showPassword = ref(false);
-   
-
-    const toggle = () => {
-      showPassword.value = !showPassword.value;
-    };
-
-    const toggleButtonText = () => {
-      return showPassword.value ? 'Hide' : 'Show';
-    };
-
-    const gotoSignUp = () => {
-      router.push('/signup');
-    };
-
-    return { username, password, showPassword, toggle, toggleButtonText, gotoSignUp };
-  }
-};
+function gotoSignUp() {
+  router.push('/signup');
+}
+function toggle() {
+  showPassword.value = !showPassword.value;
+}
+function toggleButtonText() {
+  return showPassword.value ? 'Hide':'show';
+}
 </script>
 
 <template>
