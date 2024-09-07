@@ -19,7 +19,7 @@ function toggleButtonText() {
 }
 </script>
 
-<template lang="en">
+<template>
   <div class="container">
     <input
       class="textBox"
