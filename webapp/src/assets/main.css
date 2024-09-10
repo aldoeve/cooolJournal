@@ -32,3 +32,13 @@ a,
     padding: 0 2rem;
   }
 }
+.circleImage {
+  display: inline-block;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.circleImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
