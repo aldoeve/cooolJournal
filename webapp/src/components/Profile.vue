@@ -53,10 +53,9 @@ function requestProfileChange() {
   width: 40vh;
   height: 4vh;
   text-align: center;
-  font-size: large;
+  font-size: 2.8vh;
   font-weight: bold;
   overflow: hidden;
-  grid-area: 3/1;
 }
 .bio {
   width: 40vh;
@@ -65,12 +64,13 @@ function requestProfileChange() {
   padding-left: 1vh;
 }
 .saveButton {
+  display: flex;
   background-color: white;
   size: 1vh;
   width: 11vh;
   height: 4vh;
-  text-align: center;
-  font-size: large;
+  text-align: left;
+  font-size: 2.8vh;
   font-weight: bold;
 }
 .imgPosition {
@@ -94,5 +94,16 @@ function requestProfileChange() {
   grid-area: 3/2;
   margin-left: 8vh;
   margin-top: 6vh;
+}
+@media only screen and ((max-width: 500px) or (max-height: 250px)) {
+  .saveButton {
+    display: none;
+  }
+  .bio {
+    display: none;
+  }
+  .username {
+    display: none;
+  }
 }
 </style>
