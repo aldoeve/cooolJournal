@@ -1,6 +1,7 @@
 <script>
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
+import '../assets/welcome.css';
 
 export default {
   setup() {
@@ -31,8 +32,12 @@ export default {
 };
 </script>
 
+<style scoped>
+  @import '../assets/welcome.css';
+</style>
+
 <template>
-    <body>
+    <div class="wrapper">
       <div class = "container" >
         <img class="logo" src="../assets/temp.png">
         <div class="credentials">
@@ -53,5 +58,5 @@ export default {
             </button>
           </div>
       </div>
-    </body>
+    </div>
   </template>

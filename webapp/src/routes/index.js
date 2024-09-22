@@ -1,9 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Login from '../components/Login.vue'
-import SignUp from '../components/SignUp.vue'
-import Profile from '../components/Profile.vue';
-import Create_Username from '@/components/Create_Username.vue';
-import Create_Avatar from '@/components/Create_Avatar.vue';
+import Login from '../views/Login.vue'
+import SignUp from '../views/SignUp.vue'
+import Profile from '../views/Profile.vue';
+import Create_Username from '@/views/Create_Username.vue';
+import Create_Avatar from '@/views/Create_Avatar.vue';
+import Home from '@/views/Home.vue';
 
 const routes = [
   {
@@ -30,6 +31,11 @@ const routes = [
     path: '/create/avatar',
     name: 'Create_Avatar',
     component: Create_Avatar,
+  },
+  {
+    path: '/home',
+    name: 'Home',
+    component: Home,
   }
 
 ];
