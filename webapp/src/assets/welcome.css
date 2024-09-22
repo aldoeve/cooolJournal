@@ -1,9 +1,11 @@
-body {
-    background-color: #6d96a8;
-    align-items: center;
-    justify-content: center;
-  }
-  
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  inset: 0;
+  background-color: #6d96a8;
+}  
   .container {
     display: block;
     width: 35vw;

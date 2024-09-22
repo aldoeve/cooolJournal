@@ -2,6 +2,7 @@
 <script setup>
     import { ref } from 'vue';
     import { useRouter } from 'vue-router';
+    import '../assets/welcome.css';
     
     const router = useRouter();
     const image = ref(null);
@@ -19,9 +20,13 @@
     }
 </script>
 
+<style scoped>
+  @import '../assets/welcome.css';
+</style>
 
 
 <template>
+  <div class="wrapper">
     <div class="container">
       <img class="logo" src="../assets/temp.png">
       
@@ -36,9 +41,10 @@
         </div>
       </div>
       
-      <div class="transistion-buttons-container">
-        <button @click="gotoCreateUser" class="transistion-buttons"><slot>Back</slot></button>
-        <button class="transistion-buttons"><slot>Finish</slot></button>
+        <div class="transistion-buttons-container">
+          <button @click="gotoCreateUser" class="transistion-buttons"><slot>Back</slot></button>
+          <button class="transistion-buttons"><slot>Finish</slot></button>
+        </div>
       </div>
     </div>
   </template>
