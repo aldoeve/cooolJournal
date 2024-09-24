@@ -1,51 +1,75 @@
 <script setup>
-import { ref } from 'vue';
-import { useRouter } from 'vue-router';
-import '../assets/welcome.css';
+import { ref } from "vue";
+import { useRouter } from "vue-router";
+import "../assets/welcome.css";
 
 const router = useRouter();
 
-const email = ref('');
-const password = ref('');
+const email = ref("");
+const password = ref("");
 const showPassword = ref(false);
 
 function gotoSignUp() {
-  router.push('/signup');
+  router.push("/signup");
 }
 function gotoHome() {
-  router.push('/home');
+  router.push("/home");
 }
 function toggle() {
   showPassword.value = !showPassword.value;
 }
 function toggleButtonText() {
-  return showPassword.value ? 'Hide' : 'Show';
+  return showPassword.value ? "Hide" : "Show";
 }
 </script>
 
 <style scoped>
-  @import '../assets/welcome.css';
+@import "../assets/welcome.css";
+
+@media only screen and ((max-width: 50px) or (max-height:500px)) {
+  .container {
+    display: none;
+  }
+}
 </style>
 
 <template>
   <div class="wrapper">
     <div class="container">
-      <img class="logo" src="../assets/temp.png" alt="Logo">
+      <img class="logo" src="../assets/temp.png" alt="Logo" />
 
       <div class="credentials">
         <label>Email</label>
-        <input class="textBox" v-model="email" @keydown.space.prevent placeholder="Email" />
+        <input
+          class="textBox"
+          v-model="email"
+          @keydown.space.prevent
+          placeholder="Email"
+        />
 
         <label>Password</label>
         <div class="shiftPasswordBox">
-          <input v-if="showPassword" class="textBox" v-model="password" @keydown.space.prevent placeholder="Password" />
-          <input v-else class="textBox" type="password" v-model="password" @keydown.space.prevent placeholder="Password" />
-          <button class="buttons toggleButton" @click="toggle" style="width:15%">
+          <input
+            v-if="showPassword"
+            class="textBox"
+            v-model="password"
+            @keydown.space.prevent
+            placeholder="Password"
+          />
+          <input
+            v-else
+            class="textBox"
+            type="password"
+            v-model="password"
+            @keydown.space.prevent
+            placeholder="Password"
+          />
+          <button class="buttons toggleButton" @click="toggle" style="width: 15%">
             <span>{{ toggleButtonText() }}</span>
           </button>
         </div>
-        
-        <a href="#" style="color: #6d96a8;"><u>Forgot Password?</u></a>
+
+        <a href="#" style="color: #6d96a8"><u>Forgot Password?</u></a>
       </div>
 
       <div class="account-buttons-container">
