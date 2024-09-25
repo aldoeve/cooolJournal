@@ -5,6 +5,7 @@
   position: fixed;
   inset: 0;
   background-color: #6d96a8;
+  color: black;
 } 
 
 .container {
@@ -121,4 +122,38 @@
   width: 1%;
   height: 1%; 
   margin-bottom: 2vh;
+}
+
+.enlargeMsg{
+  display: none;
+  color: black;
+}
+
+@media only screen and (max-height: 500px) {
+  .container {
+    padding: 1vh;
+    overflow: scroll;
+  }
+
+  .logo {
+    display: none;
+  }
+
+  .credentials {
+    margin-bottom: 0vh;
+  }
+
+  .textbox {
+    padding: 0vh;
+  }
+}
+
+@media only screen and (max-height: 242px) {
+  .container {
+    display: none;
+  }
+
+  .enlargeMsg {
+    display: flex;
+  }
 }

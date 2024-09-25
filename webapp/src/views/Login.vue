@@ -27,34 +27,6 @@ function toggleButtonText() {
 <style scoped>
 @import "../assets/welcome.css";
 @import "../assets/util.css";
-
-@media only screen and (max-height: 500px) {
-  .container {
-    padding: 1vh;
-  }
-
-  .logo {
-    display: none;
-  }
-
-  .credentials {
-    margin-bottom: 0vh;
-  }
-
-  .textbox {
-    padding: 0vh;
-  }
-}
-
-@media only screen and (max-height: 242px) {
-  .container {
-    display: none;
-  }
-
-  .enlargeMsg {
-    display: flex;
-  }
-}
 </style>
 
 <template>

@@ -58,5 +58,6 @@ export default {
             </button>
           </div>
       </div>
+      <div class="enlargeMsg"><span>Please enlarge the window.</span></div>
     </div>
   </template>
