@@ -2,6 +2,7 @@
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 import "../assets/welcome.css";
+import "../assets/util.css";
 
 const router = useRouter();
 
@@ -25,10 +26,33 @@ function toggleButtonText() {
 
 <style scoped>
 @import "../assets/welcome.css";
+@import "../assets/util.css";
 
-@media only screen and ((max-width: 50px) or (max-height:500px)) {
+@media only screen and (max-height: 500px) {
+  .container {
+    padding: 1vh;
+  }
+
+  .logo {
+    display: none;
+  }
+
+  .credentials {
+    margin-bottom: 0vh;
+  }
+
+  .textbox {
+    padding: 0vh;
+  }
+}
+
+@media only screen and (max-height: 242px) {
   .container {
     display: none;
+  }
+
+  .enlargeMsg {
+    display: flex;
   }
 }
 </style>
@@ -71,11 +95,13 @@ function toggleButtonText() {
 
         <a href="#" style="color: #6d96a8"><u>Forgot Password?</u></a>
       </div>
-
       <div class="account-buttons-container">
         <button class="buttons" @click="gotoHome">Log In</button>
         <button class="buttons" @click="gotoSignUp">Sign Up</button>
       </div>
+    </div>
+    <div class="enlargeMsg">
+      <span>Please expand the window.</span>
     </div>
   </div>
 </template>
