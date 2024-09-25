@@ -1,0 +1,25 @@
+.profileContainer {
+    display: grid;
+    width: 40vw;
+    height: 90vh;
+    margin: 0vh;
+    background-color: white;
+    grid-template-columns: 50% 20%;
+    grid-template-rows: 50% 50% 50%;
+    gap: 5vh;
+    place-self: center;
+    justify-content: center;
+    position: relative;
+    row-gap: 0vh;
+}
+
+.circleBase {
+    background-color: white;
+    border-radius: 50%;
+    width: 40vh;
+    height: 40vh;
+}
+
+.imgButtonLocation {
+    
+}
