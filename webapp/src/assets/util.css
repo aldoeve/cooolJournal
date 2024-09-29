@@ -1,11 +1,11 @@
 .circleImage {
-    display: inline-block;
-    border-radius: 50%;
-    overflow: hidden;
-  }
+  display: inline-block;
+  border-radius: 50%;
+  overflow: hidden;
+}
 
-  .circleImage img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+.circleImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

@@ -1,102 +1,101 @@
 .profileContainer {
-    display: grid;
-    width: 40vw;
-    height: 90vh;
-    margin: 0vh;
-    background-color: white;
-    grid-template-columns: 40% 5%;
-    grid-template-rows: 50% 50% 50%;
-    gap: 5vh;
-    place-self: center;
-    justify-content: center;
-    position: relative;
-    row-gap: 0vh;
-    font-size: 3vh;
+  display: grid;
+  width: 40vw;
+  height: 90vh;
+  margin: 0vh;
+  background-color: white;
+  grid-template-columns: 40% 5%;
+  grid-template-rows: 50% 50% 50%;
+  gap: 5vh;
+  place-self: center;
+  justify-content: center;
+  position: relative;
+  row-gap: 0vh;
+  font-size: 3vh;
 }
 
 .circleBase {
-    background-color: white;
-    border-radius: 50%;
-    border: 0.5vh #6d96a8 solid;
-    width: 120%;
-    height: 90%;
-    position: relative;
-    margin-top: 1vh;
+  background-color: white;
+  border-radius: 50%;
+  border: 0.5vh #6d96a8 solid;
+  width: 120%;
+  height: 90%;
+  position: relative;
+  margin-top: 1vh;
 }
 
 .profileButton {
-    width: 5vw;
-    height: 4vh;
-    text-align: left;
-    background-color: #6d96a8;
-    color: white;
-    font-size: 1.2vw;
-    overflow: hidden;
+  width: 5vw;
+  height: 4vh;
+  text-align: left;
+  background-color: #6d96a8;
+  color: white;
+  font-size: 1.2vw;
+  overflow: hidden;
 }
 
 .imgButtonLocation {
-    margin-top: 35vh;
+  margin-top: 35vh;
 }
 
 .username {
-    background-color: white;
-    width: 17vw;
-    height: 5vh;
-    margin-left: 1vw;
-    border: 0.5vh #6d96a8 solid;
-    text-align: center;
-    overflow: hidden;
+  background-color: white;
+  width: 17vw;
+  height: 5vh;
+  margin-left: 1vw;
+  border: 0.5vh #6d96a8 solid;
+  text-align: center;
+  overflow: hidden;
 }
 
 .usernameButtonLocation {
-    margin-left: 1vw;
-    margin-top: 0.5vh;
+  margin-left: 1vw;
+  margin-top: 0.5vh;
 }
 
 .bio {
-    background-color: white;
-    border: 0.5vh #6d96a8 solid;
-    width: 28vw;
-    height: 30vh;
-    text-align: left;
-    overflow: scroll;
-    padding-left: 1vw;
+  background-color: white;
+  border: 0.5vh #6d96a8 solid;
+  width: 28vw;
+  height: 30vh;
+  text-align: left;
+  overflow: scroll;
+  padding-left: 1vw;
 }
 
 .bioLocation {
-    margin-top: -38vh;
-    margin-left: -4vw;
+  margin-top: -38vh;
+  margin-left: -4vw;
 }
 
 .bioButtonLocation {
-    margin-top: -13vh;
-    margin-left: 6vw;   
+  margin-top: -13vh;
+  margin-left: 6vw;
 }
 
 .homeButton {
-    width: 4vw;
+  width: 4vw;
 }
 
 .profileToHome {
-    margin-left: -35vw;
-    margin-top: -84vh;
-    position: absolute;
+  margin-left: -35vw;
+  margin-top: -84vh;
+  position: absolute;
 }
 
 .enlargeMsg {
-    display: none;
-    color: black;
-    overflow: scroll;
+  display: none;
+  color: black;
+  overflow: scroll;
 }
 @media only screen and ((max-height: 242px)) {
-    .profileContainer{
-        display: none;
-    }
-    .profileButton{
-        display: none;
-    }
-    .enlargeMsg{
-        display: flex;
-    }
+  .profileContainer {
+    display: none;
+  }
+  .profileButton {
+    display: none;
+  }
+  .enlargeMsg {
+    display: flex;
+  }
 }
-
