@@ -14,7 +14,7 @@ function requestProfileChange() {
 }
 
 function gotoHome() {
-  router.push("/home");
+  router.push("/Home");
 }
 </script>
 
@@ -26,24 +26,22 @@ function gotoHome() {
 
 <template>
   <div class="wrapper">
-    <div class="profileLayout">
+    <div class="profileContainer">
       <div class="circleBase circleImage imgPosition">
         <img src="../../LionProfilePic.jpg" />
       </div>
-      <button @click="requestProfileChange"><span>Change</span></button>
-      <!--<button class="saveButton imgButtonPosition" @click="requestProfileChange">
+      <button class="profileButton imgButtonLocation" @click="requestProfileChange">
         <span>Change</span>
       </button>
-      <div class="username usernamePosition"><span>User</span></div>
-      <button class="saveButton usernameButtonPosition">
+      <div class="username"><span>John John</span></div>
+      <button class="profileButton usernameButtonLocation"><span>Change</span></button>
+      <div class="bio bioLocation"><span>Hello, I am just here to be silly.</span></div>
+      <button class="profileButton bioButtonLocation">
         <span>Change</span>
       </button>
-      <div class="username bio bioPosition">
-        <span>Hello, I am here to have fun ah ha ha.</span>
-      </div>
-      <button class="saveButton bioButtonPosition">
-        <span>Change</span>
-      </button>-->
     </div>
+    <button class="profileButton profileToHome homeButton" @click="gotoHome">
+      <span>Home</span>
+    </button>
   </div>
 </template>
