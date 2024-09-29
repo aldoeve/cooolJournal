@@ -18,8 +18,8 @@
     background-color: white;
     border-radius: 50%;
     border: 0.5vh #6d96a8 solid;
-    width: 40vh;
-    height: 40vh;
+    width: 120%;
+    height: 90%;
     position: relative;
     margin-top: 1vh;
 }
@@ -30,7 +30,8 @@
     text-align: left;
     background-color: #6d96a8;
     color: white;
-    font-size: 2.5vh;
+    font-size: 1.2vw;
+    overflow: hidden;
 }
 
 .imgButtonLocation {
@@ -81,3 +82,21 @@
     margin-top: -84vh;
     position: absolute;
 }
+
+.enlargeMsg {
+    display: none;
+    color: black;
+    overflow: scroll;
+}
+@media only screen and ((max-height: 242px)) {
+    .profileContainer{
+        display: none;
+    }
+    .profileButton{
+        display: none;
+    }
+    .enlargeMsg{
+        display: flex;
+    }
+}
+

@@ -14,7 +14,7 @@ function requestProfileChange() {
 }
 
 function gotoHome() {
-  router.push("/Home");
+  router.push("/home");
 }
 </script>
 
@@ -43,5 +43,6 @@ function gotoHome() {
     <button class="profileButton profileToHome homeButton" @click="gotoHome">
       <span>Home</span>
     </button>
+    <div class="enlargeMsg"><span>Please expand the window.</span></div>
   </div>
 </template>
