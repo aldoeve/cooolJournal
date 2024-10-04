@@ -190,6 +190,3 @@
   background-color: #4e6e7b;
 }
 </style>
-  
-  
-  
