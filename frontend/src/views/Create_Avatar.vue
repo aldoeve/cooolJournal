@@ -26,7 +26,7 @@ function onFileChange(e) {
 <template>
   <div class="wrapper">
     <div class="container">
-      <img class="logo" src="../assets/temp.png" />
+      <img class="logo" src="../../public/LionProfilePic.jpg" />
 
       <div class="credentials">
         <div v-if="image">

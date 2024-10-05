@@ -32,7 +32,7 @@ function toggleButtonText() {
 <template>
   <div class="wrapper">
     <div class="container">
-      <img class="logo" src="../assets/temp.png" alt="Logo" />
+      <img class="logo" src="../../public/LionProfilePic.jpg" alt="Logo" />
 
       <div class="credentials">
         <label>Email</label>

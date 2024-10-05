@@ -24,7 +24,7 @@ function gotoCreateUser(){
 <template>
     <div class="wrapper">
       <div class = "container" >
-        <img class="logo" src="../assets/temp.png">
+        <img class="logo" src="../../public/LionProfilePic.jpg">
         <div class="credentials">
 
           <label>Email</label>
