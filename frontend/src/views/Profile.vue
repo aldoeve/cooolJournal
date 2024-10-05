@@ -28,7 +28,7 @@ function gotoHome() {
   <div class="wrapper">
     <div class="profileContainer">
       <div class="circleBase circleImage imgPosition">
-        <img src="../../LionProfilePic.jpg" />
+        <img src="../../public/LionProfilePic.jpg" />
       </div>
       <button class="profileButton imgButtonLocation" @click="requestProfileChange">
         <span>Change</span>

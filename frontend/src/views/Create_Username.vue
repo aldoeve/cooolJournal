@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <div class="container">
-      <img class="logo" src="../assets/temp.png" />
+      <img class="logo" src="../../public/LionProfilePic.jpg" />
       <div class="credentials">
         <label>Enter a Username</label>
         <input class="textBox" placeholder="Username" />
