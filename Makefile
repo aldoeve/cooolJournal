@@ -9,3 +9,4 @@ run:
 clean:
 	@echo "Removing compiled files..."
 	rm -rf frontend/dist
+	(cd backend/ ; go mod tidy)
