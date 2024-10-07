@@ -8,7 +8,9 @@ import (
 // This is a test route.
 func SaveProfile(w http.ResponseWriter, r *http.Request) {
 	body := responses.ResponseBody{
-		"saved": {"true"},
+		"saved":  {"true"},
+		"id":     {"jer"},
+		"userid": {"cat"},
 	}
 	responses.Response(w, r, &body, http.StatusOK)
 }
