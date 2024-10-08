@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from "vue";
 import { useRouter } from "vue-router";
+import axios from "axios";
 import "../assets/welcome.css";
 import "../assets/util.css";
 
@@ -9,11 +10,25 @@ const router = useRouter();
 const email = ref("");
 const password = ref("");
 const showPassword = ref(false);
+const data = ref(null);
 
 function gotoSignUp() {
   router.push("/signup");
 }
-function gotoHome() {
+async function gotoHome() {
+  try {
+    const response = await axios.post("/api/loginUser", {
+      enteredUser: email.value,
+      enteredPass: password.value,
+    });
+    if (response.status !== 200) {
+      throw new Error(response.status);
+    }
+    data.value = response.data;
+  } catch (error) {
+    console.error("Error:", error.message);
+    return;
+  }
   router.push("/home");
 }
 function toggle() {
