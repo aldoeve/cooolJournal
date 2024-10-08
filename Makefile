@@ -4,7 +4,7 @@ build:
 
 run:
 	@echo "Attempting to run server..."
-	(cd backend/server ; go run .)
+	(cd backend/server ; go run . ${f})
 
 clean:
 	@echo "Removing compiled files..."
