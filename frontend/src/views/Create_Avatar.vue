@@ -2,6 +2,7 @@
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 import "../assets/welcome.css";
+import axios from "axios";
 
 const router = useRouter();
 const image = ref(null);
@@ -16,6 +17,14 @@ function onFileChange(e) {
 
   const file = files[0];
   image.value = URL.createObjectURL(file);
+}
+
+async function getFinsihed() {
+  try {
+    const post = await axios.get("/api/saveProfile");
+  } catch (error) {
+    console.error(error);
+  }
 }
 </script>
 
@@ -42,7 +51,7 @@ function onFileChange(e) {
         <button @click="gotoCreateUser" class="transistion-buttons">
           <slot>Back</slot>
         </button>
-        <button class="transistion-buttons"><slot>Finish</slot></button>
+        <button class="transistion-buttons" @click="getFinsihed"><slot>Finish</slot></button>
       </div>
     </div>
     <div class="enlargeMsg"><span>Please enlarge the window.</span></div>
