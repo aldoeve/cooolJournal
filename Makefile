@@ -9,7 +9,7 @@ run:
 clean:
 	@echo "Removing compiled files..."
 	rm -rf frontend/dist
-	(cd backend/ ; go mod tidy)
+	(cd backend/ ; go mod tidy; cd server; rm -f server)
 
 prod:
 	rm -rf frontend/dist
