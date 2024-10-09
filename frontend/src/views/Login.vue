@@ -15,6 +15,7 @@ const data = ref(null);
 function gotoSignUp() {
   router.push("/signup");
 }
+
 async function gotoHome() {
   try {
     const response = await axios.post("/api/loginUser", {
@@ -31,9 +32,11 @@ async function gotoHome() {
   }
   router.push("/home");
 }
+
 function toggle() {
   showPassword.value = !showPassword.value;
 }
+
 function toggleButtonText() {
   return showPassword.value ? "Hide" : "Show";
 }

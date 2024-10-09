@@ -14,4 +14,4 @@ clean:
 prod:
 	rm -rf frontend/dist
 	(cd frontend/ ; npm run build)
-	(cd backend/ ; go mod tidy; cd server/ ; rm -f server; mod build)
+	(cd backend/ ; go mod tidy; cd server/ ; rm -f server; go build . ; ./server)

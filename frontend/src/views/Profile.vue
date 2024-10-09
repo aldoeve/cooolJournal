@@ -1,20 +1,62 @@
 <script setup>
 import { ref } from "vue";
 import { useRouter } from "vue-router";
+import axios from "axios";
 import "../assets/welcome.css";
 import "../assets/profile.css";
 import "../assets/util.css";
 
 const router = useRouter();
 
-const changePicture = ref(false);
-
-function requestProfileChange() {
-  changePicture != changePicture;
-}
+const data = ref(null);
 
 function gotoHome() {
   router.push("/home");
+}
+
+async function updateProfilePic() {
+  try {
+    const response = await axios.post("/api/updateProfilePic", {
+      picture: "yes",
+    });
+    if (response.status !== 200) {
+      throw new Error(response.status);
+    }
+    data.value = response.data;
+  } catch (error) {
+    console.error("Error:", error.message);
+    return;
+  }
+}
+
+async function updateUsername() {
+  try {
+    const response = await axios.post("/api/updateUsername", {
+      name: "yey",
+    });
+    if (response.status !== 200) {
+      throw new Error(response.status);
+    }
+    data.value = response.data;
+  } catch (error) {
+    console.error("Error:", error.message);
+    return;
+  }
+}
+
+async function updateBio() {
+  try {
+    const response = await axios.post("/api/updateBio", {
+      bio: "i",
+    });
+    if (response.status !== 200) {
+      throw new Error(response.status);
+    }
+    data.value = response.data;
+  } catch (error) {
+    console.error("Error:", error.message);
+    return;
+  }
 }
 </script>
 
@@ -30,13 +72,15 @@ function gotoHome() {
       <div class="circleBase circleImage imgPosition">
         <img src="../../public/LionProfilePic.jpg" />
       </div>
-      <button class="profileButton imgButtonLocation" @click="requestProfileChange">
+      <button class="profileButton imgButtonLocation" @click="updateProfilePic">
         <span>Change</span>
       </button>
       <div class="username"><span>John John</span></div>
-      <button class="profileButton usernameButtonLocation"><span>Change</span></button>
+      <button class="profileButton usernameButtonLocation" @click="updateUsername">
+        <span>Change</span>
+      </button>
       <div class="bio bioLocation"><span>Hello, I am just here to be silly.</span></div>
-      <button class="profileButton bioButtonLocation">
+      <button class="profileButton bioButtonLocation" @click="updateBio">
         <span>Change</span>
       </button>
     </div>

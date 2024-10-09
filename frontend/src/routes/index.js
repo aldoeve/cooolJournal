@@ -6,6 +6,7 @@ import Create_Username from '@/views/Create_Username.vue';
 import Create_Avatar from '@/views/Create_Avatar.vue';
 import Home from '@/views/Home.vue';
 
+
 const routes = [
   {
     path: '/profile',
@@ -36,8 +37,11 @@ const routes = [
     path: '/home',
     name: 'Home',
     component: Home,
-  }
-
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    redirect: '/home',
+  },
 ];
 
 const router = createRouter({

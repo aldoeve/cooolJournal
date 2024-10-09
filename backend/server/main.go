@@ -16,10 +16,12 @@ func main() {
 
 	// Api calls go here.
 	patterns := []string{
-		"/api/saveProfile", "/api/loginUser",
+		"/api/createUser", "/api/loginUser", "/api/updateProfilePic",
+		"/api/updateUsername", "/api/updateBio",
 	}
 	funcs := []func(http.ResponseWriter, *http.Request){
-		routes.SaveProfile, routes.LoginUser,
+		routes.CreateUser, routes.LoginUser, routes.UpdateProfilePic,
+		routes.UpdateUsername, routes.UpdateBio,
 	}
 
 	if len(patterns) != len(funcs) {
@@ -35,8 +37,7 @@ func main() {
 	// Serves the index.html when client side reloads page if needed.
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		path := vueBianaryPath + r.URL.Path
-		_, err := os.Stat(path)
-		if os.IsNotExist(err) {
+		if _, err := os.Stat(path); os.IsNotExist(err) {
 			http.ServeFile(w, r, "./"+vueBianaryPath+"/index.html")
 			return
 		} else if err != nil {

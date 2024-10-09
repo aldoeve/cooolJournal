@@ -6,6 +6,7 @@ import axios from "axios";
 
 const router = useRouter();
 const image = ref(null);
+const data = ref(null);
 
 function gotoCreateUser() {
   router.push("/create/username");
@@ -19,12 +20,20 @@ function onFileChange(e) {
   image.value = URL.createObjectURL(file);
 }
 
-async function getFinsihed() {
+async function createUser() {
   try {
-    const post = await axios.get("/api/saveProfile");
+    const response = await axios.post("/api/createuser", {
+      userstats: image.value,
+    });
+    if (response.status !== 200) {
+      throw new Error(response.status);
+    }
+    data.value = response.data;
   } catch (error) {
-    console.error(error);
+    console.error("Error:", error.message);
+    return;
   }
+  router.push("/home");
 }
 </script>
 
@@ -51,7 +60,9 @@ async function getFinsihed() {
         <button @click="gotoCreateUser" class="transistion-buttons">
           <slot>Back</slot>
         </button>
-        <button class="transistion-buttons" @click="getFinsihed"><slot>Finish</slot></button>
+        <button class="transistion-buttons" @click="createUser">
+          <slot>Finish</slot>
+        </button>
       </div>
     </div>
     <div class="enlargeMsg"><span>Please enlarge the window.</span></div>

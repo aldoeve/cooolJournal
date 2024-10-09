@@ -5,10 +5,10 @@ import (
 	"net/http"
 )
 
-// Populate this function.
+// Authenticates the user for login purposes.
 func LoginUser(w http.ResponseWriter, r *http.Request) {
 	body := responses.ResponseBody{
 		"verfied": {"true"},
 	}
-	responses.Response(w, r, &body, http.StatusOK)
+	responses.Respond(w, r, &body, http.StatusOK)
 }

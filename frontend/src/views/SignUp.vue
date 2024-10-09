@@ -4,9 +4,8 @@ import { useRouter } from 'vue-router';
 import '../assets/welcome.css';
 
 const router = useRouter();
-const username = ref('');
+const email = ref('');
 const password = ref('');
-const showPassword = ref(false);
 
 function gotoLogin(){
   router.push('/');
@@ -28,9 +27,11 @@ function gotoCreateUser(){
         <div class="credentials">
 
           <label>Email</label>
-          <input class = "textBox" placeholder="Email"></input>
+          <input class = "textBox" placeholder="Email" v-model="email"
+          @keydown.space.prevent></input>
           <label>Password</label>
-          <input class = "textBox" placeholder="Password"></input>
+          <input class = "textBox" placeholder="Password" v-model="password"
+          @keydown.space.prevent></input>
           <input id="checkbox" type="checkbox" />
           <label for="checkbox"> I agree to these <a href="#" style="color: #6d96a8"><u>Terms and Conditions</u></a>.</label>
         </div>
