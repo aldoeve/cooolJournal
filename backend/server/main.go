@@ -2,6 +2,7 @@ package main
 
 import (
 	"cooolJournal/backend/routes"
+	"cooolJournal/backend/setup"
 	"fmt"
 	"log"
 	"net/http"
@@ -46,6 +47,11 @@ func main() {
 		}
 		server.ServeHTTP(w, r)
 	})
+
+	//Handle Setup
+	flags := make(map[string]bool)
+	setup.SetupFlags(flags)
+	setup.SetupDefault(flags)
 
 	// Starting the server.
 	fmt.Println("Server listening on", portNumberString)
