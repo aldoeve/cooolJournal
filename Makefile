@@ -11,7 +11,6 @@ clean:
 	rm -rf frontend/dist
 	(cd backend/ ; go mod tidy; cd server; rm -f server)
 
-prod:
-	rm -rf frontend/dist
+prod: clean
 	(cd frontend/ ; npm run build)
-	(cd backend/ ; go mod tidy; cd server/ ; rm -f server; go build . ; ./server)
+	(cd backend/ ; cd server/ ; go build . ; ./server)
