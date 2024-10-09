@@ -19,7 +19,7 @@ export default defineConfig({
       filename: 'js/[name].[hash].js',
     },
     performance: {
-      hints: false
+      hints: true
     }
   },
 })
