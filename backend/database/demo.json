@@ -1,0 +1,63 @@
+{
+    "users": [
+        {
+            "email": "jeremypalomo02@gmail.com",
+            "username": "Ace_of_Spadez",
+            "password": "jeremy23",
+            "terms": "2023-01-01",
+            "bio": "A bio for Jeremy Palomo"
+        },
+        {
+            "email": "jane.smith@example.com",
+            "username": "janesmith",
+            "password": "hashedpassword2",
+            "terms": "2023-02-15",
+            "bio": "A bio for Jane Smith"
+        }
+    ],
+    "avatar": [
+        {
+            "user_id": 1,
+            "avatar": "BINARY_DATA_FOR_IMAGE_1"
+        },
+        {
+            "user_id": 2,
+            "avatar": "BINARY_DATA_FOR_IMAGE_2"
+        }
+    ],
+    "topics": [
+        {
+            "topic_name": "Technology"
+        },
+        {
+            "topic_name": "Travel"
+        },
+        {
+            "topic_name": "Fitness"
+        }
+    ],
+    "journals": [
+        {
+            "user_id": 1,
+            "topic_id": 1,
+            "journal_name": "Cool Tech Journal Name"
+        },
+        {
+            "user_id": 2,
+            "topic_id": 2,
+            "journal_name": "Cool Travel Journal Name"
+        }
+    ],
+    "pages": [
+        {
+            "journal_id": 1,
+            "page_entry": "Exploring new tech trends in 2024.",
+            "page_date": "2024-01-10"
+        },
+        {
+            "journal_id": 2,
+            "page_entry": "Visited the Alps during winter.",
+            "page_date": "2024-02-20"
+        }
+    ]
+}
