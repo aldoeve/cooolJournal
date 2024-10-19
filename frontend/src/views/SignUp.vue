@@ -2,6 +2,7 @@
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import '../assets/welcome.css';
+import Create_Username from './Create_Username.vue';
 
 const router = useRouter();
 const email = ref('');
@@ -12,7 +13,7 @@ function gotoLogin(){
 };
 
 function gotoCreateUser(){
-  router.push('/create/username');
+    router.push("create/username")
 };
 </script>
 

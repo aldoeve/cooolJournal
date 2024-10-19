@@ -19,7 +19,7 @@ function gotoSignUp() {
 async function gotoHome() {
   try {
     const response = await axios.post("/api/loginUser", {
-      enteredUser: email.value,
+      enteredEmail: email.value,
       enteredPass: password.value,
     });
     if (response.status !== 200) {
@@ -30,7 +30,10 @@ async function gotoHome() {
     console.error("Error:", error.message);
     return;
   }
-  router.push("/home");
+  if(data.value.verified[0] === "true") {
+    router.push("/home");
+  }
+  
 }
 
 function toggle() {

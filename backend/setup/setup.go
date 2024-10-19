@@ -31,14 +31,16 @@ func SetupDefault(flags map[string]bool) {
         //Reset database from flag
         if flags["resetdb"] {
             Resetdb()
+            LoadDemoData()
         }
 
     } else { //The database does *not* exist
         fmt.Print("database does *not* exist...\n")
         Createdb()
+        LoadDemoData()
     }
 
-    LoadDemoData()
+    
 }
 
 func Resetdb() {
