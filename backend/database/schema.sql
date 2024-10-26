@@ -3,7 +3,7 @@ CREATE TABLE users (
     email TEXT NOT NULL UNIQUE,
     username VARCHAR(20) NOT NULL,
     password TEXT NOT NULL UNIQUE,
-    terms date NOT NULL,
+    terms TEXT NOT NULL,
     bio VARCHAR(300)
 );
 

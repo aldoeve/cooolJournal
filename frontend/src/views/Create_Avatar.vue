@@ -21,19 +21,7 @@ function onFileChange(e) {
 }
 
 async function createUser() {
-  try {
-    const response = await axios.post("/api/createuser", {
-      userstats: image.value,
-    });
-    if (response.status !== 200) {
-      throw new Error(response.status);
-    }
-    data.value = response.data;
-  } catch (error) {
-    console.error("Error:", error.message);
-    return;
-  }
-  router.push("/home");
+  router.push("/");
 }
 </script>
 

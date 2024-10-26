@@ -10,10 +10,9 @@ const router = useRouter();
 const email = ref("");
 const password = ref("");
 const showPassword = ref(false);
-const data = ref(null);
 
 function gotoSignUp() {
-  router.push("/signup");
+  router.push("/create");
 }
 
 async function gotoHome() {
@@ -22,17 +21,15 @@ async function gotoHome() {
       enteredEmail: email.value,
       enteredPass: password.value,
     });
-    if (response.status !== 200) {
-      throw new Error(response.status);
+    if(response.data.userExists[0] === "true") {
+      router.push("/");
     }
-    data.value = response.data;
   } catch (error) {
-    console.error("Error:", error.message);
-    return;
+    if (error.response && error.response.status === 409) {
+      console.error("Error:", error.response.data.error[0]);
+    }
   }
-  if(data.value.verified[0] === "true") {
-    router.push("/home");
-  }
+  
   
 }
 

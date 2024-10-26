@@ -11,7 +11,7 @@ const router = useRouter();
 const data = ref(null);
 
 function gotoHome() {
-  router.push("/home");
+  router.push("/");
 }
 
 async function updateProfilePic() {

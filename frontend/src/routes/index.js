@@ -14,12 +14,12 @@ const routes = [
     component: Profile,
   },
   {
-    path: '/',
+    path: '/login',
     name: 'Login',
     component: Login,
   },
   {
-    path: '/signup',
+    path: '/create',
     name: 'SignUp',
     component: SignUp,
   },
@@ -34,13 +34,13 @@ const routes = [
     component: Create_Avatar,
   },
   {
-    path: '/home',
+    path: '/',
     name: 'Home',
     component: Home,
   },
   {
     path: '/:pathMatch(.*)*',
-    redirect: '/home',
+    redirect: '/',
   },
 ];
 

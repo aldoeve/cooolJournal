@@ -100,7 +100,7 @@
     "@vue/compiler-dom" "3.4.38"
     "@vue/shared" "3.4.38"
 
-"@vue/devtools-api@^6.6.4":
+"@vue/devtools-api@^6.0.0-beta.11", "@vue/devtools-api@^6.6.4":
   version "6.6.4"
   resolved "https://registry.npmjs.org/@vue/devtools-api/-/devtools-api-6.6.4.tgz"
   integrity sha512-sGhTPMuXqZ1rVOk32RylztWkfXTRhuS7vgAKv0zjqk8gbsHkJ7xfFf+jbySxt7tWObEJwyKaHMikV/WGDiQm8g==
@@ -266,7 +266,7 @@ vue-router@4:
   dependencies:
     "@vue/devtools-api" "^6.6.4"
 
-vue@^3.2.0, vue@^3.2.25, vue@^3.4.29, vue@3.4.38:
+vue@^3.0.2, vue@^3.2.0, vue@^3.2.25, vue@^3.4.29, vue@3.4.38:
   version "3.4.38"
   resolved "https://registry.npmjs.org/vue/-/vue-3.4.38.tgz"
   integrity sha512-f0ZgN+mZ5KFgVv9wz0f4OgVKukoXtS3nwET4c2vLBGQR50aI8G0cqbFtLlX9Yiyg3LFGBitruPHt2PxwTduJEw==
@@ -276,3 +276,10 @@ vue@^3.2.0, vue@^3.2.25, vue@^3.4.29, vue@3.4.38:
     "@vue/runtime-dom" "3.4.38"
     "@vue/server-renderer" "3.4.38"
     "@vue/shared" "3.4.38"
+
+vuex@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.npmjs.org/vuex/-/vuex-4.0.2.tgz"
+  integrity sha512-M6r8uxELjZIK8kTKDGgZTYX/ahzblnzC4isU1tpmEuOIIKmV+TRdc+H4s8ds2NuZ7wpUTdGRzJRtoj+lI+pc0Q==
+  dependencies:
+    "@vue/devtools-api" "^6.0.0-beta.11"
