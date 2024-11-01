@@ -45,13 +45,13 @@
         <div v-if="isSmallScreen" class="left-button-container">
           <button @click="sideToggle" class="side-bar-button" style="margin-right: 16px;"><i class="fa fa-bars fa-lg"></i></button>
           <button class="logo-button" @click="gotoHome">
-            <img class="logo" src="https://i.ibb.co/CW5Wvry/buttonpng.png" alt="buttonpng"/>
+            <img class="logo" src="../../public/logo.png" alt="buttonpng"/>
           </button>
         </div>
 
         <div v-else>
           <button class="logo-button" @click="gotoHome">
-            <img class="logo" src="https://i.ibb.co/CW5Wvry/buttonpng.png" alt="buttonpng"/>
+            <img class="logo" src="../../public/logo.png" alt="buttonpng"/>
           </button>
         </div>
         
@@ -86,7 +86,7 @@
   align-items: center;
   width: 100vw;
   height: 76px;
-  background-color: #6d96a8;
+  background-color: #fafafa;
   border-bottom: 1px solid black;
   padding: 16px;
 }
@@ -145,12 +145,12 @@
   border: none;
   border-radius: 100px;
   background-color: transparent;
-  color:white;
+  color:black;
 
 }
 
 .side-bar-button:hover {
-  background-color: #4e6e7b;
+  background-color: rgb(218, 218, 218);
 }
 
 
@@ -183,10 +183,10 @@
   padding: 8px;
   color: white;
   cursor: pointer;
-  background-color: #6d96a8;
+  background-color: #00918f;
 }
 
 .profile-button:hover {
-  background-color: #4e6e7b;
+  background-color: #006e6c;
 }
 </style>

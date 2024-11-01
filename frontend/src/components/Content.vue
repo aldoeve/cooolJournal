@@ -42,7 +42,7 @@
     flex-shrink: 0;
     width: 55vw;
     height: 400px;
-    background-color: green;
+    background-color: fafafa;
     margin-bottom: 16px;;
 }
 </style>

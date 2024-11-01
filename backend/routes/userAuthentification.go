@@ -59,9 +59,8 @@ func CreateUser(w http.ResponseWriter, r *http.Request) {
 	var exists bool
 
 	_ = db.QueryRow(
-		"SELECT EXISTS(SELECT 1 FROM users WHERE email = ? AND password = ?) AS row_exists;",
+		"SELECT EXISTS(SELECT 1 FROM users WHERE email = ?) AS row_exists;",
 		UserCreation.EnteredEmail,
-		UserCreation.EnteredPassword,
 	).Scan(&exists)
 
 	//User doesn't exists

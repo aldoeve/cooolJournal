@@ -4,7 +4,7 @@
   align-items: center;
   width: 100%;
   height: 64px;
-  background-color: #6d96a8;
+  background-color: #f77f00;
   border-bottom: 1px solid black;
 }
 
@@ -71,9 +71,9 @@
   padding: 8px;
   color: white;
   cursor: pointer;
-  background-color: #6d96a8;
+  background-color: #f77f00;
 }
 
 .profile-button:hover {
-  background-color: #4e6e7b;
+  background-color: #f77f00;
 }

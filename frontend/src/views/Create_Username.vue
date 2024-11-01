@@ -1,13 +1,20 @@
 <template>
   <div class="wrapper" v-if="isUserVerified">
     <div class="container">
-      <img class="logo" src="../../public/LionProfilePic.jpg" />
+      <img class="logo" src="../../public/logo.png" />
       <div class="credentials">
         <label>Enter a Username</label>
-        <input class="textBox" placeholder="Username" v-model="username"/>
+        <InputText id="username" v-model="username" @keydown.space.prevent required style="margin-bottom: 2vh;" autocomplete="off"/>
+
         <label>Enter a Bio</label>
-        <textarea rows="4" cols="50" placeholder="Bio" class="comment-box" v-model="bio"></textarea>
+        <Textarea rows="4" cols="50" v-model="bio" style="resize: none;" :maxlength="maxBioLength" ></Textarea>
+        <p>{{ maxBioLength - bio.length }} characters remaining.</p>
       </div>
+
+      <div class="error-container">
+        <div v-if="errorMessage" class="error">{{ errorMessage }}</div>
+      </div>
+
       <div class="transistion-buttons-container" style="justify-content: flex-end">
         <button @click="gotoCreateAvatar" class="transistion-buttons">
           <slot>Next</slot>
@@ -23,16 +30,19 @@ import { useRouter } from "vue-router";
 import "../assets/welcome.css";
 import { ref, onMounted } from "vue";
 import axios from "axios";
+import InputText from 'primevue/inputtext';
+import Textarea from "primevue/textarea";
 
 const bio = ref('');
 const username = ref('');
-const usernameResponse = ref(null);
-const bioResponse = ref(null);
 const router = useRouter();
 const isUserVerified = ref(false);
 const email = ref(null);
 const isUsernameValid = ref(true);
 const isBioValid = ref(true);
+const errorMessage = ref("");
+const maxBioLength = ref(300);
+const maxUsernameLength = ref(20);
 
 onMounted(() => {
   verifyUser();
@@ -53,14 +63,27 @@ async function verifyUser() {
 };
 
 async function updateUsername() {
+
+  if(username.value.length < 5) {
+    errorMessage.value = "Username must be at least 5 characters long."
+    return false;
+  }
+
+  if(username.value.length > 20) {
+    errorMessage.value = "Username must be at most 20 characters long."
+    return false;
+  }
+
   try {
     const response = await axios.put("/api/updateUsername", {
       email: email.value,
       enteredUsername: username.value,
     });
-    
+    return true;
   } catch(error) {
     console.error("Error:", error.message);
+    errorMessage.value = "Could not update Username."
+    return false;
   }
 }
 
@@ -70,9 +93,11 @@ async function updateBio() {
       email: email.value,
       enteredBio: bio.value,
     });
-    response.data;
+    return true;
   } catch(error) {
     console.error("Error:", error.message);
+    errorMessage.value = "Could not update Bio."
+    return false;
   }
 }
 
@@ -84,13 +109,20 @@ async function gotoCreateAvatar() {
       const response = await axios.post("/api/retrieveUser", {});
       if(response.data.verified[0] === "true") {
         email.value = response.data.email[0];
-        updateUsername();
-        updateBio();
-        router.push("/create/avatar");
+        
+        const usernameUpdated = await updateUsername();
+        const bioUpdated = await updateBio();
+
+        
+
+        if (usernameUpdated && bioUpdated) {
+          router.push("/create/avatar");
+        }
       }
     } catch(error) {
       console.error("Error: ", error.message);
-
+      errorMessage.value = "Could not find User."
+      return;
     }
     
   }

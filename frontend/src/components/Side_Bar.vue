@@ -119,7 +119,7 @@
 
 } 
 .side-button:hover {
-    background-color: rgb(224, 224, 224);
+    background-color:rgb(218, 218, 218);
 }
 
 hr {

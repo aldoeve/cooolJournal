@@ -1,92 +1,53 @@
 <script setup>
-import { ref } from "vue";
+import { ref, onBeforeMount } from "vue";
+import Top_Bar from "@/components/Top_Bar.vue";
 import { useRouter } from "vue-router";
 import axios from "axios";
 import "../assets/welcome.css";
-import "../assets/profile.css";
 import "../assets/util.css";
 
 const router = useRouter();
+const bio = ref('');
+const username = ref('');
 
-const data = ref(null);
+onBeforeMount(() => {
+  
+}); 
 
 function gotoHome() {
   router.push("/");
 }
-
-async function updateProfilePic() {
-  try {
-    const response = await axios.post("/api/updateProfilePic", {
-      picture: "yes",
-    });
-    if (response.status !== 200) {
-      throw new Error(response.status);
-    }
-    data.value = response.data;
-  } catch (error) {
-    console.error("Error:", error.message);
-    return;
-  }
-}
-
-async function updateUsername() {
-  try {
-    const response = await axios.post("/api/updateUsername", {
-      name: "yey",
-    });
-    if (response.status !== 200) {
-      throw new Error(response.status);
-    }
-    data.value = response.data;
-  } catch (error) {
-    console.error("Error:", error.message);
-    return;
-  }
-}
-
-async function updateBio() {
-  try {
-    const response = await axios.post("/api/updateBio", {
-      bio: "i",
-    });
-    if (response.status !== 200) {
-      throw new Error(response.status);
-    }
-    data.value = response.data;
-  } catch (error) {
-    console.error("Error:", error.message);
-    return;
-  }
-}
 </script>
 
 <style scoped>
-@import "../assets/top_bar.css";
-@import "../assets/font-awesome-4.7.0/css/font-awesome.min.css";
-@import "../assets/welcome.css";
+.profile-wrapper {
+  position: fixed;
+    inset: 0;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-info-container {
+    background-color: white;
+    width: 320px;
+    min-width: 320px;
+    height: 100%;
+    border-right: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 16px;
+    overflow: hidden;
+  }
+
 </style>
 
 <template>
-  <div class="wrapper">
-    <div class="profileContainer">
-      <div class="circleBase circleImage imgPosition">
-        <img src="../../public/LionProfilePic.jpg" />
-      </div>
-      <button class="profileButton imgButtonLocation" @click="updateProfilePic">
-        <span>Change</span>
-      </button>
-      <div class="username"><span>John John</span></div>
-      <button class="profileButton usernameButtonLocation" @click="updateUsername">
-        <span>Change</span>
-      </button>
-      <div class="bio bioLocation"><span>Hello, I am just here to be silly.</span></div>
-      <button class="profileButton bioButtonLocation" @click="updateBio">
-        <span>Change</span>
-      </button>
+  <div class="profile-wrapper">
+    <Top_Bar></Top_Bar>
+    <div class="profile-info-container">
+      <p>{{ bio.toString() }}</p>
     </div>
-    <button class="profileButton profileToHome homeButton" @click="gotoHome">
-      <span>Home</span>
-    </button>
-    <div class="enlargeMsg"><span>Please expand the window.</span></div>
   </div>
 </template>

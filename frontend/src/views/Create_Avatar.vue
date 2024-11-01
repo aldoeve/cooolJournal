@@ -32,7 +32,7 @@ async function createUser() {
 <template>
   <div class="wrapper">
     <div class="container">
-      <img class="logo" src="../../public/LionProfilePic.jpg" />
+      <img class="logo" src="../../public/logo.png" />
 
       <div class="credentials">
         <div v-if="image">
