@@ -1,5 +1,5 @@
 <template>
-  <div class="landing-wrapper" v-if="isUserVerified">
+  <div class="landing-wrapper">
     <Top_Bar></Top_Bar>
     <div class="main-content">
       <Side_Bar></Side_Bar>
@@ -16,10 +16,10 @@ import Top_Bar from '@/components/Top_Bar.vue';
 import Side_Bar from '@/components/Side_Bar.vue';
 import Content from '@/components/Content.vue';
 
-const isUserVerified = ref(false);
+// const isUserVerified = ref(false);
 const router = useRouter();
 
-async function verifyUser() {
+/* async function verifyUser() {
   try {
     const verifyResponse = await axios.post("/api/verifyUser", {});
     if (verifyResponse.data.verified[0] === "true") {
@@ -31,11 +31,11 @@ async function verifyUser() {
     console.error("Verification failed:", error.message);
     router.push("/login");
   }
-}
+} */
 
-onMounted(() => {
+/* onMounted(() => {
   verifyUser();
-});
+}); */
 </script>
 
 <style scoped>

@@ -146,7 +146,7 @@ func LoginUser(w http.ResponseWriter, r *http.Request) {
 		//Create JWT token
 		nowTime := time.Now()
 		expirationTime := nowTime.Add(12 * time.Hour)
-		tokenString, err := CreateToken(UserCreation.EnteredEmail, expirationTime)
+		tokenString, err := CreateToken(LoginRequest.EnteredEmail, expirationTime)
 
 		if err != nil {
 			fmt.Errorf("No username found")

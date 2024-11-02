@@ -9,9 +9,10 @@ import Home from '@/views/Home.vue';
 
 const routes = [
   {
-    path: '/profile',
+    path: '/profile/:username',
     name: 'Profile',
     component: Profile,
+    props: true,
   },
   {
     path: '/login',

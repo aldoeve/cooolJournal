@@ -1,11 +1,17 @@
 <script setup>
-  import { ref, onMounted, onBeforeUnmount } from 'vue';
+  import { ref, onMounted, onBeforeUnmount, onBeforeMount } from 'vue';
   import { useRouter } from 'vue-router';
   import Side_Bar from './Side_Bar.vue';
+  import axios from 'axios';
 
   const isSmallScreen = ref(false);
   const sidebarTriggered = ref(false);
   const router = useRouter();
+  const isUserVerified = ref(false);
+
+function gotoLogin() {
+  router.push("/login");
+}
 
   const checkScreenSize = () => {
     isSmallScreen.value = window.innerWidth < 1200;
@@ -14,6 +20,21 @@
       sidebarTriggered.value = false;
     }
   };
+
+  async function verifyUser() {
+  try {
+    const verifyResponse = await axios.post("/api/verifyUser", {});
+    if (verifyResponse.data.verified[0] === "true") {
+      isUserVerified.value = true;
+    }
+  } catch (error) {
+    console.error("Verification failed:", error.message);
+  }
+}
+
+onBeforeMount(() => {
+  verifyUser();
+});
 
   onMounted(() => {
       checkScreenSize(); 
@@ -33,46 +54,49 @@
     router.push('/home');
   }
 
-  function gotoProfile() {
-    router.push('/profile');
-  }
+  async function gotoProfile() {
+    try {
+      const response = await axios.get('/api/getUsernameFromJWT');
+      if (response.data.verified[0] === 'true') {
+        const username = response.data.username[0];
+        router.push(`/profile/${username}`);
+      }
+    } catch (error) {
+      console.error("Error:", error.message);
+    }
+}
 </script>
 
 
 <template>
-      <div class="top-bar">
+  <div class="top-bar">
+      <div v-if="isSmallScreen" class="left-button-container">
+        <button @click="sideToggle" class="side-bar-button" style="margin-right: 16px;"><i class="fa fa-bars fa-lg"></i></button>
+        <button class="logo-button" @click="gotoHome">
+          <img class="logo" src="../../public/logo.png" alt="buttonpng"/>
+        </button>
+      </div>
 
-        <div v-if="isSmallScreen" class="left-button-container">
-          <button @click="sideToggle" class="side-bar-button" style="margin-right: 16px;"><i class="fa fa-bars fa-lg"></i></button>
-          <button class="logo-button" @click="gotoHome">
-            <img class="logo" src="../../public/logo.png" alt="buttonpng"/>
-          </button>
-        </div>
-
-        <div v-else>
-          <button class="logo-button" @click="gotoHome">
-            <img class="logo" src="../../public/logo.png" alt="buttonpng"/>
-          </button>
-        </div>
-        
-
-        <div class="search-box">
-          <i class="fa fa-search fa-lg"></i>
-          <input class="search-bar" type="text" placeholder="Search">
-          
-        </div>
-
-        <div class="right-button-container">
-          <button @click="gotoProfile" class="profile-button"  style="margin-right: 16px;"><i class="fa fa-user-o fa-lg"></i></button>
-          <button class="profile-button"><i class="fa fa-cog fa-lg"></i></button>
-        </div>
-    </div>
-    
-
-    <Side_Bar v-if="sidebarTriggered" :sidebarTriggered="sidebarTriggered"></Side_Bar>
+      <div v-else>
+        <button class="logo-button" @click="gotoHome">
+          <img class="logo" src="../../public/logo.png" alt="buttonpng"/>
+        </button>
+      </div>
       
-    
-    
+
+      <div class="search-box">
+        <i class="fa fa-search fa-lg"></i>
+        <input class="search-bar" type="text" placeholder="Search">
+        
+      </div>
+
+      <div class="right-button-container">
+        <button v-if="isUserVerified" @click="gotoProfile" class="profile-button"  style="margin-right: 16px;"><i class="fa fa-user-o fa-lg"></i></button>
+        <button v-else @click="gotoLogin" class="profile-button"  style="margin-right: 16px;"><i>Login</i></button>
+        <button class="profile-button"><i class="fa fa-cog fa-lg"></i></button>
+      </div>
+    </div>
+    <Side_Bar v-if="sidebarTriggered" :sidebarTriggered="sidebarTriggered"></Side_Bar>
   </template>
   
 <style scoped>

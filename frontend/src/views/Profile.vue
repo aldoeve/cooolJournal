@@ -1,18 +1,43 @@
 <script setup>
 import { ref, onBeforeMount } from "vue";
 import Top_Bar from "@/components/Top_Bar.vue";
-import { useRouter } from "vue-router";
+import { useRouter, useRoute } from "vue-router";
 import axios from "axios";
 import "../assets/welcome.css";
 import "../assets/util.css";
 
 const router = useRouter();
+const route = useRoute();
 const bio = ref('');
-const username = ref('');
+const profileUsername = ref('');
+const userUsername = ref('');
 
 onBeforeMount(() => {
-  
+  getProfile();
+  getUserUsername();
 }); 
+
+async function getProfile() {
+  try {
+    const response = await axios.get(`/api/getUserProfile/${route.params.username}`);
+    profileUsername.value = response.data.username[0];
+    bio.value = response.data.bio[0];
+    
+  } catch(error) {
+    console.error("Error:", error.message)
+    router.push('/');
+  }
+}
+
+async function getUserUsername() {
+  try {
+    const response = await axios.get('/api/getUsernameFromJWT');
+    userUsername.value = response.data.username[0];
+    
+  } catch(error) {
+    console.error("Error:", error.message)
+  }
+}
 
 function gotoHome() {
   router.push("/");
@@ -47,7 +72,9 @@ function gotoHome() {
   <div class="profile-wrapper">
     <Top_Bar></Top_Bar>
     <div class="profile-info-container">
-      <p>{{ bio.toString() }}</p>
+      <p v-if="profileUsername">{{ profileUsername }}</p>
+      <p v-if="bio">{{ bio }}</p>
+      <button v-if="userUsername === profileUsername"><i>Edit Profile</i></button>
     </div>
   </div>
 </template>

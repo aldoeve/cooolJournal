@@ -102,6 +102,8 @@ async function updateBio() {
 }
 
 
+//Need to fix*********
+//Make each routes authenticate the user
 async function gotoCreateAvatar() {
 
   if (isBioValid && isUsernameValid) {

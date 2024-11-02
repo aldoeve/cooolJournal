@@ -18,13 +18,13 @@ func main() {
 	// Api calls go here.
 	patterns := []string{
 		"/api/createUser", "/api/loginUser", "/api/updateProfilePic",
-		"/api/updateUsername", "/api/updateBio", "/api/getUserByEmail",
-		"/api/retrieveUser", "/api/verifyUser",
+		"/api/updateUsername", "/api/updateBio", "/api/getUsernameFromJWT",
+		"/api/retrieveUser", "/api/verifyUser", "/api/getUserProfile/",
 	}
 	funcs := []func(http.ResponseWriter, *http.Request){
 		routes.CreateUser, routes.LoginUser, routes.UpdateProfilePic,
-		routes.UpdateUsername, routes.UpdateBio, routes.GetUserByEmail,
-		routes.RetrieveUser, routes.VerifyUser,
+		routes.UpdateUsername, routes.UpdateBio, routes.GetUsernameFromJWT,
+		routes.RetrieveUser, routes.VerifyUser, routes.GetUserProfile,
 	}
 
 	if len(patterns) != len(funcs) {
